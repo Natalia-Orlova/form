@@ -15,7 +15,7 @@
         </div>
 
         <div id="loginForm" class="form-container">
-            <form id="login">
+            <form id="login" onsubmit="handleLogin(event)">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
@@ -27,30 +27,30 @@
         </div>
 
         <div id="registerForm" class="form-container" style="display: none;">
-            <form id="register">
-                <label for="phone">Номер телефона *</label>
-                <input type="tel" id="phone" name="phone" oninput="formatPhoneNumber(this)" placeholder="+7 (XXX) XXX-XX-XX" required minlength="11">
+            <form id="register" onsubmit="handleRegistration(event)">
+                <label for="s-phone">Номер телефона</label>
+                <input type="tel" id="s-phone" name="s-phone" oninput="formatPhoneNumber(this)" placeholder="+7 (XXX) XXX-XX-XX" required>
 
-                <label for="surname">Фамилия *</label>
-                <input type="text" id="surname" name="surname" onblur="handleBlur(this)" oninput="restrictInput(this)" required>
+                <label for="s-surname">Фамилия</label>
+                <input type="text" id="s-surname" name="s-surname" onblur="handleBlur(this)" oninput="restrictInput(this)" required>
 
-                <label for="name">Имя *</label>
-                <input type="text" id="name" name="name" onblur="handleBlur(this)" oninput="restrictInput(this)" required>
+                <label for="s-name">Имя</label>
+                <input type="text" id="s-name" name="s-name" onblur="handleBlur(this)" oninput="restrictInput(this)" required>
 
-                <label for="patronymic">Отчество</label>
-                <input type="text" id="patronymic" name="patronymic" onblur="handleBlur(this)" oninput="restrictInput(this)">
+                <label for="s-patronymic">Отчество</label>
+                <input type="text" id="s-patronymic" name="s-patronymic" onblur="handleBlur(this)" oninput="restrictInput(this)">
 
-                <label for="dob">Дата рождения *</label>
-                <input type="date" id="dob" name="dob" required>
+                <label for="s-dob">Дата рождения</label>
+                <input type="text" id="s-dob" name="s-dob" placeholder="дд-мм-гггг" maxlength="10" oninput="formatDateInput(this)">
 
-                <label for="gender">Пол *</label>
-                <select id="gender" name="gender" required>
+                <label for="s-gender">Пол</label>
+                <select id="s-gender" name="s-gender" required>
                     <option value="male">Мужской</option>
                     <option value="female">Женский</option>
                 </select>
 
-                <label for="regEmail">Email *</label>
-                <input type="email" id="regEmail" name="regEmail" required>
+                <label for="s-email">Email</label>
+                <input type="email" id="s-email" name="s-email" required>
 
                 <label for="city">Город:</label>
                 <select id="city" name="city" required>
@@ -59,10 +59,10 @@
                     <option value="novosibirsk">Новосибирск</option>
                 </select>
 
-                <label for="storeAddress">Адрес магазина *</label>
+                <label for="storeAddress">Адрес магазина</label>
                 <input type="text" id="storeAddress" name="storeAddress" required>
 
-                <label for="storeName">Название магазина *</label>
+                <label for="storeName">Название магазина</label>
                 <input type="text" id="storeName" name="storeName" required>
 
                 <label for="regPassword">Придумайте пароль</label>
@@ -73,6 +73,51 @@
                 <span id="password-match" style="display: none; margin-bottom: 20px; font-size: 12px"></span>
 
                 <button type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+
+        <!-- добавить участника -->
+        <div id="participantsSection" class="participants-container" style="display: none;">
+            <button id="addParticipantBtn" onclick="showAddParticipantForm()">Добавить участника</button>
+            <ol id="participantsList">
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+            </ol>
+        </div>
+        
+        <div id="addParticipantForm" class="form-container" style="display: none;">
+            <form id="participantForm" onsubmit="handleAddParticipant(event)">
+                <label for="phone">Номер телефона:</label>
+                <input type="text" id="phone" name="phone" oninput="formatPhoneNumber(this)" placeholder="+7 (XXX) XXX-XX-XX" required>
+        
+                <label for="lastName">Фамилия</label>
+                <input type="text" id="lastName" name="lastName" onblur="handleBlur(this)" oninput="restrictInput(this)" required>
+        
+                <label for="firstName">Имя</label>
+                <input type="text" id="firstName" name="firstName" onblur="handleBlur(this)" oninput="restrictInput(this)" required>
+        
+                <label for="middleName">Отчество</label>
+                <input type="text" id="middleName" name="middleName" onblur="handleBlur(this)" oninput="restrictInput(this)">
+        
+                <label for="birthDate">Дата рождения</label>
+                <input type="text" id="birthDate" name="birthDate" placeholder="дд-мм-гггг" maxlength="10" oninput="formatDateInput(this)" required>
+        
+                <label for="gender">Пол:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Мужской</option>
+                    <option value="female">Женский</option>
+                </select>
+        
+                <label for="passportScan">Скан паспорта</label>
+                <input type="file" id="passportScan" name="passportScan" required>
+                
+                <label for="device">Устройство</label>
+                <input type="text" id="device" name="device" placeholder="XX00000" maxlength="7" oninput="formatDeviceInput(this)" required>
+        
+                <button type="submit">Добавить</button>
             </form>
         </div>
     </div>

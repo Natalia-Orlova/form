@@ -26,11 +26,12 @@ body {
     justify-content: center;
     align-items: center;
     overflow-y: scroll;
+    -webkit-tap-highlight-color: transparent;
 }
 .container {
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); */
     width: 320px;
 }
 
@@ -57,9 +58,9 @@ body {
     font-family: BenzinSemibold, sans-serif;
 }
 
-.form-container {
+/* .form-container {
     display: none;
-}
+} */
 
 .form-container.active {
     display: block;
@@ -84,8 +85,9 @@ input {
     /* color: #fff; */
 }
 
-button[type="submit"] {
+#addParticipantBtn, button[type="submit"] {
     width: 100%;
+    margin-bottom: 36px;
     padding: 10px;
     background-color: #fff;
     border: none;
@@ -95,4 +97,10 @@ button[type="submit"] {
     font-size: 16px;
     text-transform: uppercase;
     color: #000;
+}
+
+#participantsList li {
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
