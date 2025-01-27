@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход | Регистрация</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button id="loginTab" class="tab-button active" onclick="showLoginForm()">Вход</button>
+            <button id="registerTab" class="tab-button" onclick="showRegisterForm()">Регистрация</button>
+        </div>
+
+        <div id="loginForm" class="form-container">
+            <form id="login">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Войти</button>
+            </form>
+        </div>
+
+        <div id="registerForm" class="form-container" style="display: none;">
+            <form id="register">
+                <label for="phone">Номер телефона *</label>
+                <input type="tel" id="phone" name="phone" pattern="\+7[0-9]{10}" placeholder="+7XXXXXXXXXX" required>
+
+                <label for="surname">Фамилия *</label>
+                <input type="text" id="surname" name="surname" required>
+
+                <label for="name">Имя *</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="patronymic">Отчество</label>
+                <input type="text" id="patronymic" name="patronymic">
+
+                <label for="dob">Дата рождения *</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="gender">Пол *</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Мужской</option>
+                    <option value="female">Женский</option>
+                </select>
+
+                <label for="regEmail">Email *</label>
+                <input type="email" id="regEmail" name="regEmail" required>
+
+                <label for="city">Город:</label>
+                <select id="city" name="city" required>
+                    <option value="moscow">Москва</option>
+                    <option value="saint-petersburg">Санкт-Петербург</option>
+                    <option value="novosibirsk">Новосибирск</option>
+                    <!-- Добавьте другие города по необходимости -->
+                </select>
+
+                <label for="storeAddress">Адрес магазина:</label>
+                <input type="text" id="storeAddress" name="storeAddress" required>
+
+                <label for="storeName">Название магазина:</label>
+                <input type="text" id="storeName" name="storeName" required>
+
+                <label for="regPassword">Придумайте пароль</label>
+                <input type="password" id="regPassword" name="regPassword" required>
+
+                <label for="confirmPassword">Повторите пароль</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
