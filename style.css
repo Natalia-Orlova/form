@@ -94,4 +94,5 @@ button[type="submit"] {
     font-family: Signal, sans-serif;
     font-size: 16px;
     text-transform: uppercase;
+    color: #000;
 }
