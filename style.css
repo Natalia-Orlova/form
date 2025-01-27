@@ -28,11 +28,10 @@ body {
     overflow-y: scroll;
 }
 .container {
-    /* background-color: #fff; */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    width: 300px;
+    width: 320px;
 }
 
 .tabs {
@@ -79,9 +78,10 @@ input, select {
     outline: none;
     border-bottom: 1px solid #6a6a6a;
     background-color: transparent;
+    color: #6a6a6a;
 }
 input {
-    color: #fff;
+    /* color: #fff; */
 }
 
 button[type="submit"] {
