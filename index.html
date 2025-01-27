@@ -29,16 +29,16 @@
         <div id="registerForm" class="form-container" style="display: none;">
             <form id="register">
                 <label for="phone">Номер телефона *</label>
-                <input type="tel" id="phone" name="phone" pattern="\+7[0-9]{10}" placeholder="+7XXXXXXXXXX" required>
+                <input type="tel" id="phone" name="phone" oninput="formatPhoneNumber(this)" placeholder="+7 (XXX) XXX-XX-XX" required minlength="11">
 
                 <label for="surname">Фамилия *</label>
-                <input type="text" id="surname" name="surname" required>
+                <input type="text" id="surname" name="surname" onblur="handleBlur(this)" oninput="restrictInput(this)" required>
 
                 <label for="name">Имя *</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" onblur="handleBlur(this)" oninput="restrictInput(this)" required>
 
                 <label for="patronymic">Отчество</label>
-                <input type="text" id="patronymic" name="patronymic">
+                <input type="text" id="patronymic" name="patronymic" onblur="handleBlur(this)" oninput="restrictInput(this)">
 
                 <label for="dob">Дата рождения *</label>
                 <input type="date" id="dob" name="dob" required>
@@ -57,20 +57,20 @@
                     <option value="moscow">Москва</option>
                     <option value="saint-petersburg">Санкт-Петербург</option>
                     <option value="novosibirsk">Новосибирск</option>
-                    <!-- Добавьте другие города по необходимости -->
                 </select>
 
-                <label for="storeAddress">Адрес магазина:</label>
+                <label for="storeAddress">Адрес магазина *</label>
                 <input type="text" id="storeAddress" name="storeAddress" required>
 
-                <label for="storeName">Название магазина:</label>
+                <label for="storeName">Название магазина *</label>
                 <input type="text" id="storeName" name="storeName" required>
 
                 <label for="regPassword">Придумайте пароль</label>
-                <input type="password" id="regPassword" name="regPassword" required>
+                <input type="password" id="regPassword" name="regPassword" oninput="checkPasswordMatch()" required >
 
                 <label for="confirmPassword">Повторите пароль</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <input type="password" id="confirmPassword" name="confirmPassword" oninput="checkPasswordMatch()" required>
+                <span id="password-match" style="display: none; margin-bottom: 20px; font-size: 12px"></span>
 
                 <button type="submit">Зарегистрироваться</button>
             </form>
