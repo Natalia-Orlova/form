@@ -327,19 +327,16 @@ function showParticipantInfo(participant) {
 }
 
 function formatDeviceInput(input) {
-    const errorElement = document.getElementById('device-error');
-    const value = input.value.toUpperCase(); // Приводим ввод к верхнему регистру
-
-    // Удаляем все символы, кроме букв и цифр
+    const value = input.value.toUpperCase(); 
     const cleanedValue = value.replace(/[^A-Z0-9]/g, '');
     // Проверяем длину и формат
     if (cleanedValue.length <= 2) {
         // Первые два символа должны быть буквами
         input.value = cleanedValue.replace(/[^A-Z]/g, '');
     } else {
-        // После двух букв должны идти цифры
+        // После двух букв должны идти цифры, но не более 5
         const letters = cleanedValue.slice(0, 2).replace(/[^A-Z]/g, '');
-        const numbers = cleanedValue.slice(2).replace(/\D/g, '');
+        const numbers = cleanedValue.slice(2).replace(/\D/g, '').slice(0, 5); 
         input.value = letters + numbers;
     }
 }
