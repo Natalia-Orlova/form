@@ -93,7 +93,7 @@
             </div>
             <form id="participantForm" onsubmit="handleAddParticipant(event)">
                 <label for="phone">Номер телефона</label>
-                <input type="text" id="phone" name="phone" oninput="formatPhoneNumber(this)" placeholder="+7 (XXX) XXX-XX-XX" required>
+                <input type="tel" id="phone" name="phone" oninput="formatPhoneNumber(this)" placeholder="+7 (XXX) XXX-XX-XX" required>
         
                 <label for="lastName">Фамилия</label>
                 <input type="text" id="lastName" name="lastName" onblur="handleBlur(this)" oninput="restrictInput(this)" required>
