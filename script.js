@@ -302,7 +302,6 @@ function handleAddParticipant(event) {
 function updateFileName(event) {
     const fileNameText = document.querySelector('.file-name-text');
     const file = event.target.files[0];
-    console.log(file);
 
     if (file) {
         const reader = new FileReader();

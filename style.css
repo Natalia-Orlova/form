@@ -89,7 +89,7 @@ input[type=file] {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    visibility: hidden;
+    opacity: 0;
 }
 .passportScan {
     position: relative;
