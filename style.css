@@ -107,6 +107,10 @@ input[type=file] {
 .file-name img {
     width: 20px;
 }
+.file-name span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 #addParticipantBtn, #logoutBtn, button[type="submit"] {
     width: 100%;
