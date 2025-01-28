@@ -122,6 +122,14 @@ input[type=file] {
     text-transform: uppercase;
     color: #000;
 }
+.backButton {
+    width: 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background-color: #fff;
+}
 #logoutBtn {
     width: max-content;
     padding: 10px 20px;
@@ -131,4 +139,14 @@ input[type=file] {
     margin-bottom: 20px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.formHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+.formTitle {
+    font-family: BenzinSemibold, sans-serif;
+    text-transform: uppercase;
 }

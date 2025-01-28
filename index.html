@@ -78,20 +78,19 @@
 
         <!-- добавить участника -->
         <div id="participantsSection" class="participants-container" style="display: none;">
-            <button id="addParticipantBtn" onclick="showAddParticipantForm()">Добавить участника</button>
-            <ol id="participantsList">
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-            </ol>
+            <button id="addParticipantBtn" onclick="changePage('participantsSection', 'addParticipantForm')">Добавить участника</button>
+            <ol id="participantsList"></ol>
             <button id="logoutBtn" onclick="handleLogout()">Выход</button>
         </div>
         
+
         <div id="addParticipantForm" class="form-container" style="display: none;">
+            <div class="formHeader">
+                <button class="backButton" onclick="changePage('addParticipantForm', 'participantsSection')"><img src="img/ArrowBack.svg" alt="back"></button>
+                <div class="formTitle">Данные участника</div>
+            </div>
             <form id="participantForm" onsubmit="handleAddParticipant(event)">
-                <label for="phone">Номер телефона:</label>
+                <label for="phone">Номер телефона</label>
                 <input type="text" id="phone" name="phone" oninput="formatPhoneNumber(this)" placeholder="+7 (XXX) XXX-XX-XX" required>
         
                 <label for="lastName">Фамилия</label>
@@ -113,8 +112,8 @@
                 </select>
         
                 <label class="passportScan">Скан паспорта
-                    <div class="file-name"><img src="img/clip.svg" alt="clip"><span class="file-name-text">Файл не выбран</span></div>
-                    <input type="file" id="passportScan" name="passportScan" required accept="image/*" capture="camera" onchange="updateFileName(event)">
+                    <div class="file-name"><img src="img/clip.svg" alt="clip"><span id="file-name-text" class="file-name-text">Файл не выбран</span></div>
+                    <input type="file" id="passportScan" name="passportScan" required accept="image/*" capture="camera" onchange="updateFileName(event, 'file-name-text')">
                 </label>
                 
                 
@@ -122,6 +121,46 @@
                 <input type="text" id="device" name="device" placeholder="XX00000" maxlength="7" oninput="formatDeviceInput(this)" required>
         
                 <button type="submit">Добавить</button>
+            </form>
+        </div>
+
+        <div id="participantInfo" class="participantInfo" style="display: none">
+            <div class="formHeader">
+                <button class="backButton" onclick="changePage('participantInfo', 'participantsSection')"><img src="img/ArrowBack.svg" alt="back"></button>
+                <div class="formTitle">Редактирование</div>
+            </div>
+            <form id="edit-participantForm" onsubmit="handleAddParticipant(event)">
+                <label for="edit-phone">Номер телефона</label>
+                <input type="text" id="edit-phone" name="phone" oninput="formatPhoneNumber(this)" placeholder="+7 (XXX) XXX-XX-XX" required>
+        
+                <label for="edit-lastName">Фамилия</label>
+                <input type="text" id="edit-lastName" name="lastName" onblur="handleBlur(this)" oninput="restrictInput(this)" required>
+        
+                <label for="edit-firstName">Имя</label>
+                <input type="text" id="edit-firstName" name="firstName" onblur="handleBlur(this)" oninput="restrictInput(this)" required>
+        
+                <label for="edit-middleName">Отчество</label>
+                <input type="text" id="edit-middleName" name="middleName" onblur="handleBlur(this)" oninput="restrictInput(this)">
+        
+                <label for="edit-birthDate">Дата рождения</label>
+                <input type="text" id="edit-birthDate" name="birthDate" placeholder="дд-мм-гггг" maxlength="10" oninput="formatDateInput(this)" required>
+        
+                <label for="edit-gender">Пол:</label>
+                <select id="edit-gender" name="gender" required>
+                    <option value="male">Мужской</option>
+                    <option value="female">Женский</option>
+                </select>
+        
+                <label class="passportScan">Скан паспорта
+                    <div class="file-name"><img src="img/clip.svg" alt="clip"><span id="edit-file-name-text"></span></div>
+                    <input type="file" id="edit-passportScan" name="passportScan" readonly accept="image/*" capture="camera" onchange="updateFileName(event, 'edit-file-name-text')">
+                </label>
+                
+                
+                <label for="edit-device">Устройство</label>
+                <input type="text" id="edit-device" name="device" placeholder="XX00000" maxlength="7" oninput="formatDeviceInput(this)" required>
+        
+                <button type="submit">Сохранить</button>
             </form>
         </div>
     </div>
