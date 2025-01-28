@@ -86,7 +86,13 @@ select {
     cursor: pointer;
 }
 input[type=file] {
-   display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    visibility: hidden;
+}
+.passportScan {
+    position: relative;
 }
 .file-name {
     cursor: pointer;
@@ -96,6 +102,7 @@ input[type=file] {
     margin-bottom: 10px;
     border-bottom: 1px solid #6a6a6a;
     color: #6a6a6a;
+    font-size: 14px;
 }
 .file-name img {
     width: 20px;
