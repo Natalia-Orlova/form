@@ -38,7 +38,7 @@ body {
 .tabs {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
 }
 
 .tab-button {
@@ -82,13 +82,29 @@ input, select {
     background-color: transparent;
     color: #6a6a6a;
 }
-input {
-    /* color: #fff; */
+select {
+    cursor: pointer;
+}
+input[type=file] {
+   display: none;
+}
+.file-name {
+    cursor: pointer;
+    display: flex;
+    gap: 20px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #6a6a6a;
+    color: #6a6a6a;
+}
+.file-name img {
+    width: 20px;
 }
 
-#addParticipantBtn, button[type="submit"] {
+#addParticipantBtn, #logoutBtn, button[type="submit"] {
     width: 100%;
-    margin-bottom: 36px;
+    /* margin-bottom: 36px; */
+    margin: 28px 0;
     padding: 10px;
     background-color: #fff;
     border: none;
@@ -98,6 +114,10 @@ input {
     font-size: 16px;
     text-transform: uppercase;
     color: #000;
+}
+#logoutBtn {
+    width: max-content;
+    padding: 10px 20px;
 }
 
 #participantsList li {

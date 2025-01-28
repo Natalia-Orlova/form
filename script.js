@@ -160,7 +160,7 @@ function checkPasswordMatch() {
     }
   }
 
-  async function handleRegistration(event) {
+async function handleRegistration(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -232,6 +232,22 @@ function handleLogin(event) {
     document.getElementById('participantsSection').style.display = 'block';
 }
 
+function handleLogout() {
+    // Скрываем раздел с участниками
+    document.getElementById('participantsSection').style.display = 'none';
+
+    // Показываем вкладки "Вход" и "Регистрация"
+    document.querySelector('.tabs').style.display = 'block';
+
+    // Показываем форму входа (по умолчанию)
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('registerForm').style.display = 'none';
+
+    // Устанавливаем активную вкладку "Вход"
+    document.getElementById('loginTab').classList.add('active');
+    document.getElementById('registerTab').classList.remove('active');
+}
+
 // Показать форму добавления участника
 function showAddParticipantForm() {
     document.getElementById('participantsSection').style.display = 'none';
@@ -281,6 +297,20 @@ function handleAddParticipant(event) {
     //     .catch((error) => {
     //       console.error("Ошибка:", error);
     //     });
+}
+
+function updateFileName(event) {
+    const fileNameText = document.querySelector('.file-name-text');
+    const file = event.target.files[0];
+    console.log(file);
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            fileNameText.textContent = file.name;
+        };
+        reader.readAsDataURL(file);
+    }
 }
 
 // Добавление участника в список
